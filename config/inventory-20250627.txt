@@ -1,0 +1,113 @@
+#
+# Server Inventory File
+#
+# Uncomment and change the IP addresses in this file to match your environment
+# Define per-group or per-host configuration in group_vars/*.yml
+
+######
+# ALL NODES
+# NOTE: Use existing hostnames here, DeepOps will configure server hostnames to match these values
+######
+[all]
+#mgmt01     ansible_host=10.0.0.1
+#mgmt02     ansible_host=10.0.0.2
+#mgmt03     ansible_host=10.0.0.3
+#login01    ansible_host=10.0.1.1
+#gpu01      ansible_host=10.0.2.1
+#gpu02      ansible_host=10.0.2.2
+#erisxdl1 ansible_host=192.168.1.11 ip=192.168.1.11
+#erisxdl2 ansible_host=192.168.1.12 ip=192.168.1.12
+#erisxdl3 ansible_host=192.168.1.13 ip=192.168.1.13
+#erisxdl4 ansible_host=192.168.1.11 ip=192.168.1.14
+#erisxdl5 ansible_host=192.168.1.12 ip=192.168.1.15
+erisxdl6 ansible_host=192.168.1.13 ip=192.168.1.16
+#dgx-1    ansible_host=192.168.1.21 ip=192.168.1.21
+dgx-2    ansible_host=192.168.1.22 ip=192.168.1.22
+dgx-3    ansible_host=192.168.1.23 ip=192.168.1.23
+dgx-4    ansible_host=192.168.1.24 ip=192.168.1.24
+dgx-5    ansible_host=192.168.1.25 ip=192.168.1.25
+#lmd-1    ansible_host=192.168.1.31 ip=192.168.1.31
+#lmd-2    ansible_host=192.168.1.32 ip=192.168.1.32
+#lmd-3    ansible_host=192.168.1.33 ip=192.168.1.33
+#lmd-4    ansible_host=192.168.1.34 ip=192.168.1.34
+
+######
+# KUBERNETES
+######
+[kube-master]
+#mgmt01
+#mgmt02
+#mgmt03
+#erisxdl1
+#erisxdl2
+#erisxdl3
+#erisxdl4
+#erisxdl5
+erisxdl6
+
+# Odd number of nodes required
+[etcd]
+#mgmt01
+#mgmt02
+#mgmt03
+#erisxdl1
+#erisxdl2
+#erisxdl3
+#erisxdl4
+#erisxdl5
+erisxdl6
+
+# Also add mgmt/master nodes here if they will run non-control plane jobs
+[kube-node]
+#gpu01
+#gpu02
+#dgx-1
+dgx-2
+dgx-3
+dgx-4
+dgx-5
+#lmd-1
+#lmd-2
+#lmd-3
+#lmd-4
+
+[k8s-cluster:children]
+kube-master 	 
+kube-node 	 
+
+######
+# SLURM
+######
+[slurm-master]
+#login01
+#erisxdl1
+#erisxdl2
+#erisxdl3
+#erisxdl4
+#erisxdl5
+erisxdl6
+
+[slurm-node]
+#gpu01
+#gpu02
+#dgx-1
+dgx-2
+dgx-3
+dgx-4
+dgx-5
+
+[slurm-cluster:children]
+slurm-master
+slurm-node
+
+######
+# SSH connection configuration
+######
+[all:vars]
+# SSH User
+ansible_user=dgxadmin
+#ansible_ssh_private_key_file='~/.ssh/id_rsa'
+# SSH bastion/jumpbox
+#ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q ubuntu@10.0.0.1"'
+deploy_container_engine=False
+download_run_once=True
