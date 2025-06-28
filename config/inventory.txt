@@ -18,9 +18,9 @@
 #erisxdl1 ansible_host=192.168.1.11 ip=192.168.1.11
 #erisxdl2 ansible_host=192.168.1.12 ip=192.168.1.12
 #erisxdl3 ansible_host=192.168.1.13 ip=192.168.1.13
-#erisxdl4 ansible_host=192.168.1.11 ip=192.168.1.14
-#erisxdl5 ansible_host=192.168.1.12 ip=192.168.1.15
-erisxdl6 ansible_host=192.168.1.13 ip=192.168.1.16
+#erisxdl4 ansible_host=192.168.1.14 ip=192.168.1.14
+#erisxdl5 ansible_host=192.168.1.15 ip=192.168.1.15
+erisxdl6 ansible_host=192.168.1.16 ip=192.168.1.16
 #dgx-1    ansible_host=192.168.1.21 ip=192.168.1.21
 dgx-2    ansible_host=192.168.1.22 ip=192.168.1.22
 dgx-3    ansible_host=192.168.1.23 ip=192.168.1.23
