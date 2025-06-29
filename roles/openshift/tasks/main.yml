@@ -32,6 +32,7 @@
   yum:
     name: "{{ epel_package }}"
   when: ansible_os_family == "RedHat"
+  tags: never # RGK epel already made available
 
   # TODO: Verify that RHEL  does not require venv
 - name: install openshift python client for k8s_raw module
