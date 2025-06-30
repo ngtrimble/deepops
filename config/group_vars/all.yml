@@ -149,7 +149,8 @@ nvidia_driver_force_install: false
 # Playbook: docker, nvidia-docker, k8s-cluster
 #
 # For supported Docker versions, see: submodules/kubespray/roles/container-engine/docker/vars/*
-docker_install: yes
+# RGK 20250630 preinstalled docker
+docker_install: no
 # docker_version: 'latest'
 docker_dns_servers_strict: no
 docker_storage_options: -s overlay2
