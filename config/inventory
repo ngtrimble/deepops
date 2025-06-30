@@ -111,4 +111,6 @@ ansible_user=dgxadmin
 #ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q ubuntu@10.0.0.1"'
 # RGK 20250630 change the following to True
 deploy_container_engine=True
-download_run_once=True
+# RGK 20250630 change the following to False, only applicable for container_manager == 'docker', 
+# but we are using containerd
+download_run_once=False
