@@ -109,5 +109,6 @@ ansible_user=dgxadmin
 #ansible_ssh_private_key_file='~/.ssh/id_rsa'
 # SSH bastion/jumpbox
 #ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q ubuntu@10.0.0.1"'
-deploy_container_engine=False
+# RGK 20250630 change the following to True
+deploy_container_engine=True
 download_run_once=True
