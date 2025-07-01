@@ -27,6 +27,7 @@
     key: "{{ epel_key_url }}"
     state: present
   when: ansible_os_family == "RedHat"
+  tags: never # RGK epel already made available
 
 - name: install EPEL for CentOS
   yum:
